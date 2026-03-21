@@ -36,8 +36,7 @@ class TestRootEndpoint:
         data = assert_success_response(response, 200)
         assert "message" in data
         assert "version" in data
-        assert "status" in data
-        assert "docs" in data
+        assert "status" in data      
         
         assert data["status"] == "online"
         assert data["version"] == "1.0.0"

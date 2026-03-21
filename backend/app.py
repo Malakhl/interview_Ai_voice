@@ -29,7 +29,7 @@ import os
 # JWT Configuration
 SECRET_KEY = "your-secret-key-change-in-production-2026"
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7  # 7 days
+ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
 # Security
 security = HTTPBearer()
@@ -89,6 +89,7 @@ def create_access_token(data):
 
     now = datetime.utcnow()
     expire = now + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    
     
     # ضروري نزيدو iat باش التيست يدوز
     to_encode.update({
