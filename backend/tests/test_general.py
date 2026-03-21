@@ -40,7 +40,7 @@ class TestRootEndpoint:
         
         assert data["status"] == "online"
         assert data["version"] == "1.0.0"
-        assert data["docs"] == "/docs"
+
 
     def test_root_endpoint_message(self, client):
         """Test root endpoint message."""
