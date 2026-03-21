@@ -74,14 +74,27 @@ active_interviews = {}
 # AUTHENTICATION HELPERS
 # =============================================================================
 
-def create_access_token(data: dict):
+# def create_access_token(data: dict):
+#     """Create JWT access token"""
+#     to_encode = data.copy()
+#     expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+#     to_encode.update({"exp": expire})
+#     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+#     return encoded_jwt
+def create_access_token(data): # حيدت :dict باش تكون مرنة
     """Create JWT access token"""
-    to_encode = data.copy()
+    # تصحيح: إلا كان المعطى نص (string) ردو قاموس (dictionary)
+    if isinstance(data, str):
+        to_encode = {"sub": data}
+    else:
+        to_encode = data.copy()
+
+    # استعمال النسخة الجديدة من datetime لتفادي الـ Warnings
     expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
+    
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
-
 def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
     """Verify JWT token"""
     try:
