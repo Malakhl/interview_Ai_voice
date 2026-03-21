@@ -202,7 +202,7 @@ class TestUpdateProfile:
             json={"name": "Hacked Name"}
         )
         
-        assert_error_response(response, 403, "not authorised")
+        assert_error_response(response, 403, "not authorized")
 
     def test_update_profile_requires_auth(self, client, test_user_in_db):
         """Test that updating profile requires authentication."""
@@ -672,7 +672,7 @@ class TestUpdateAfterInterview:
             json=results
         )
         
-        assert_error_response(response, 403, "not authorised")
+        assert_error_response(response, 403, "not authorized")
 
     def test_update_after_interview_requires_auth(self, client, test_user_in_db):
         """Test that updating after interview requires authentication."""

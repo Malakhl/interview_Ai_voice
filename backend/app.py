@@ -81,17 +81,20 @@ active_interviews = {}
 #     to_encode.update({"exp": expire})
 #     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 #     return encoded_jwt
-def create_access_token(data): # حيدت :dict باش تكون مرنة
-    """Create JWT access token"""
-    # تصحيح: إلا كان المعطى نص (string) ردو قاموس (dictionary)
+def create_access_token(data):
     if isinstance(data, str):
         to_encode = {"sub": data}
     else:
         to_encode = data.copy()
 
-    # استعمال النسخة الجديدة من datetime لتفادي الـ Warnings
-    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    to_encode.update({"exp": expire})
+    now = datetime.utcnow()
+    expire = now + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    
+    # ضروري نزيدو iat باش التيست يدوز
+    to_encode.update({
+        "exp": expire,
+        "iat": now 
+    })
     
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt

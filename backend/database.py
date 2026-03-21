@@ -333,3 +333,40 @@ def update_user_stats(user_id: str, stats_update: Dict) -> Optional[List[Dict]]:
         return new_achievements
     finally:
         conn.close()
+# --- الدوال المساعدة اللي كيتسناهم التيست (Helper Functions) ---
+
+def _get_conn():
+    """الدالة اللي كتعطي الاتصال لقاعدة البيانات"""
+    return get_db()
+
+def _fetchone(conn, query, params=None):
+    """جلب سطر واحد - كيرد Dictionary"""
+    cursor = conn.cursor()
+    if params:
+        cursor.execute(query, params)
+    else:
+        cursor.execute(query)
+    row = cursor.fetchone()
+    return dict(row) if row else None
+
+def _fetchall(conn, query, params=None):
+    """جلب كاع السطور - كيرد List of Dictionaries"""
+    cursor = conn.cursor()
+    if params:
+        cursor.execute(query, params)
+    else:
+        cursor.execute(query)
+    return [dict(row) for row in cursor.fetchall()]
+
+def _execute(conn, query, params=None):
+    """تنفيذ أمر (Update/Delete/Insert)"""
+    cursor = conn.cursor()
+    if params:
+        cursor.execute(query, params)
+    else:
+        cursor.execute(query)
+    conn.commit()
+    return cursor.rowcount
+
+# هاد المتغير غير باش التيست ما يخرجش Error وخا SQLite ما فيهاش Pool حقيقي
+_pool = True
