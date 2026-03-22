@@ -40,7 +40,7 @@ WORKDIR /app
 # Copy application source
 COPY app.py .
 COPY database.py .
-# هاد السطر كيحط الملف فـ الجذر (Root) نيشان باش الكود يلقاه
+
 COPY final_knowledge_base.csv /final_knowledge_base.csv
 COPY course_catalog.csv /course_catalog.csv 
 # COPY final_knowledge_base.csv .
