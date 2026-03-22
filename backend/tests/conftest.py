@@ -5,7 +5,7 @@ from importlib import import_module
 
 import pytest
 
-
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 def _install_lightweight_ml_stubs():
     # Stub sentence_transformers.SentenceTransformer used during app import/startup.
     sentence_transformers_module = types.ModuleType("sentence_transformers")
