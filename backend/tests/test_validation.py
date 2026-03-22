@@ -1,26 +1,23 @@
 import pytest
 from pydantic import ValidationError
 
-
 def test_register_request_rejects_short_password(app_module):
     with pytest.raises(ValidationError):
         app_module.RegisterRequest(
             username="valid_user",
             email="u@example.com",
-            password="short",
+            password="123", # قصير بزاف (قل من 8)
             name="Valid Name",
         )
-
 
 def test_register_request_rejects_invalid_username(app_module):
     with pytest.raises(ValidationError):
         app_module.RegisterRequest(
-            username="ab",
+            username="a", # قصير بزاف (قل من 3)
             email="u@example.com",
-            password="longenoughpassword",
+            password="password123",
             name="Valid Name",
         )
-
 
 def test_register_request_accepts_valid_payload(app_module):
     payload = app_module.RegisterRequest(

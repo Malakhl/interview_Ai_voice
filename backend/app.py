@@ -19,6 +19,7 @@ import joblib
 import json
 from jose import JWTError, jwt
 import database as db
+from pydantic import BaseModel, EmailStr, Field
 
 # =============================================================================
 # CONFIGURATION
@@ -116,9 +117,9 @@ def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
 # =============================================================================
 
 class RegisterRequest(BaseModel):
-    username: str
-    email: str
-    password: str
+    username: str = Field(..., min_length=3)  # كيفرض على الأقل 3 حروف
+    email: EmailStr
+    password: str = Field(..., min_length=8)  # كيفرض على الأقل 8 حروف
     name: str
 
 class LoginRequest(BaseModel):
