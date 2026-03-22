@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import App from '../src/App'; // تأكدي من المسار الصحيح لـ App component
+import App from "../App";
 
 describe('Frontend Professional Smoke Test', () => {
   
