@@ -5,8 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   test: {
-    globals: true,
-    environment: 'jsdom', // ضروري باش يحاكي المتصفح
-    setupFiles: './tests/setup.js', // هادا هو الملف لي صيفطتي قبيلة
+   globals: true,
+    environment: 'jsdom',
+    // إذا كان الملف داخل src/tests/ ديري هاد المسار:
+    setupFiles: './src/tests/setup.js',
   },
 })
