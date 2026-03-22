@@ -92,7 +92,7 @@ def create_access_token(data):
     expire = now + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     
     
-    # ضروري نزيدو iat باش التيست يدوز
+  
     to_encode.update({
         "exp": expire,
         "iat": now 
@@ -117,9 +117,9 @@ def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
 # =============================================================================
 
 class RegisterRequest(BaseModel):
-    username: str = Field(..., min_length=3)  # كيفرض على الأقل 3 حروف
+    username: str = Field(..., min_length=3) 
     email: EmailStr
-    password: str = Field(..., min_length=8)  # كيفرض على الأقل 8 حروف
+    password: str = Field(..., min_length=8)  
     name: str
 
 class LoginRequest(BaseModel):
