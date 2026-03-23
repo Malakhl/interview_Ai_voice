@@ -70,7 +70,7 @@ const apiCall = async (url, options = {}) => {
 };
 
 function App() {
-  // Authentication States
+  
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [authMode, setAuthMode] = useState('login'); // 'login' or 'register'
