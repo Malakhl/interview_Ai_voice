@@ -119,7 +119,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('home'); // 'home', 'dashboard', 'interview'
   const [showAuth, setShowAuth] = useState(false);
 
-  // Check authentication on mount
+
   useEffect(() => {
     const token = getToken();
     if (token) {
