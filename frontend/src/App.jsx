@@ -50,7 +50,7 @@ const getToken = () => localStorage.getItem('token');
 const setToken = (token) => localStorage.setItem('token', token);
 const removeToken = () => localStorage.removeItem('token');
 
-// API helper with auth
+
 const apiCall = async (url, options = {}) => {
   const token = getToken();
   const headers = {
