@@ -45,7 +45,7 @@ import {
 
 const API_BASE_URL = 'http://18.215.13.56:30050';
 
-// Token management
+
 const getToken = () => localStorage.getItem('token');
 const setToken = (token) => localStorage.setItem('token', token);
 const removeToken = () => localStorage.removeItem('token');

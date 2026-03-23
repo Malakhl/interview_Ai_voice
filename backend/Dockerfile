@@ -55,7 +55,9 @@ RUN useradd --create-home --shell /bin/bash appuser \
     # Pre-create the HF cache dir as appuser so the Docker volume mount
     # inherits the right ownership (volume root would be owned by root otherwise)
     && mkdir -p /app/.cache/huggingface \
-    && chown -R appuser:appuser /app
+    && chown -R appuser:appuser /app \
+    && pip install pydantic[email] email-validator
+
 
 USER appuser
 
