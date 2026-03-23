@@ -108,7 +108,7 @@ function App() {
   });
   const [editMode, setEditMode] = useState(false);
   
-  // New Magic Features States
+
   const [showAchievements, setShowAchievements] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [interviewHistory, setInterviewHistory] = useState([]);
