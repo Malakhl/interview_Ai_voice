@@ -96,7 +96,7 @@ function App() {
   const [isListening, setIsListening] = useState(false);
   const [recognition, setRecognition] = useState(null);
   
-  // User Profile States
+
   const [showProfile, setShowProfile] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
   const [profileForm, setProfileForm] = useState({
