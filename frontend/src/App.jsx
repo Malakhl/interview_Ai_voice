@@ -73,7 +73,7 @@ function App() {
   
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
-  const [authMode, setAuthMode] = useState('login'); // 'login' or 'register'
+  const [authMode, setAuthMode] = useState('login'); 
   const [authForm, setAuthForm] = useState({
     username: '',
     email: '',
