@@ -116,7 +116,7 @@ function App() {
   const [questionStartTime, setQuestionStartTime] = useState(null);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [showDashboard, setShowDashboard] = useState(true);
-  const [currentPage, setCurrentPage] = useState('home'); // 'home', 'dashboard', 'interview'
+  const [currentPage, setCurrentPage] = useState('home'); 
   const [showAuth, setShowAuth] = useState(false);
 
 
