@@ -593,7 +593,7 @@ function App() {
           <div className="header-title" style={{cursor: 'pointer'}} onClick={() => setCurrentPage('home')}>
             <Brain className="header-icon" size={40} />
             <div>
-              <h1>Smart Voice Interviewer</h1>
+              <h1>Smart Voice Interviewer modifier pour presentation</h1>
               <p className="subtitle">AI-Powered Interview System</p>
             </div>
           </div>
